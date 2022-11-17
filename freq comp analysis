@@ -1,0 +1,101 @@
+close all;
+
+clear all;
+
+clc;
+
+fs = 512;
+
+T = 1/fs;
+
+load ('D:\EEGfile')
+
+N =length (EEGsig); is = size (EEGsig);
+
+tx =[0:length(EEGsig)-1]/fs;
+
+fx = fs* (0:N/2-1)/N;
+
+figure;
+
+subplot (211),
+
+plot (tx, EEGsig);
+
+xlabel('Time (s)'),
+
+ylabel('Amplitude (UV)'), title('Original EEG signal');
+
+subplot (212), plot (tx, EEGsig);
+
+xlabel('Time (s)'),
+ylabel('Amplitude (UV)'),
+
+title('Zoom into original EEG signal at 1 to 2 seconds"),
+
+xlin([1,2])
+mean EEGsig mean (EEGsig);
+
+max_value-max (EEGsig); mean value-mean (EEGsig):
+
+threshold (max_value-mean_value)/2;
+
+[12:33 PM, 11/17/2022] Rohan@kitsw: [p,f]=pwelch (EEGsig, hamming (fs),.5 fs, 2 fs, fs);
+
+figure: subplot (421),
+
+plot (1,10 log10(p), 'r'); xlabel('freq (hz)');
+
+ylabel('PSD Amplitude');
+
+title('Power Spectral Density via Welchs method and harming window');
+
+grid on;
+
+xlabel('freq (hz)');
+
+ylabel('PSD Amplitude (dB)'); subplot (422),
+
+plot (f, 10 log10 (p),'g') xlabel('freq (hz)');
+
+ylabel('PSD Amplitude (dB)');
+
+[12:34 PM, 11/17/2022] Rohan@kitsw: title('Power Spectral Density via Welchs method zoom in at 60 hz');
+
+xlim([0,60]): grid on:
+
+(pxx, f) periodogram (EEGsig, hanning (length(x)), length (x), fs, 'power'))
+
+x= EEGsig:
+
+[pwrest, idx]= max(pxx);
+
+fprintf('The maximum power occurs at $3.1f Hz\n', f(idx)); fprintf('The power estimate is 12.2f\n',pwrest);
+
+title('Power Spectral Density via periodogram method and hamming window");
+
+grid on;
+
+plot (f, 10 log10(pxx));
+
+subplot (423),
+
+xlabel('freq (hz)');
+
+ylabel('PSD Amplitude (dB)');
+
+subplot (424),
+
+title('Power Spectral Density via periodogram method and hamming window zoom
+
+plot (f, 10 log10(pxx));
+
+in at 60Hz');
+
+grid on;
+
+xlabel('freq (hz)');
+
+ylabel('PSD Amplitude (dB)');
+
+xlim ([0,60]);
